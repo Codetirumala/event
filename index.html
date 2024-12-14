@@ -4,68 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Registration Form</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #ff7e5f;
+        }
+
+        button {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #feb47b, #ff7e5f);
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            input, select, textarea, button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Event Registration Form</h1>
     <form action="/submit" method="post">
-        <!-- Text input -->
-        <label for="name">Full Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+        <h1>Event Registration Form</h1>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <!-- Email input -->
-        <label for="email">Email Address:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
 
-        <!-- Phone number input -->
-        <label for="phone">Phone Number:</label><br>
-        <input type="tel" id="phone" name="phone" required><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
 
-        <!-- Date input -->
-        <label for="dob">Date of Birth:</label><br>
-        <input type="date" id="dob" name="dob"><br><br>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob">
 
-        <!-- Time input -->
-        <label for="event-time">Preferred Event Time:</label><br>
-        <input type="time" id="event-time" name="event-time"><br><br>
+        <label for="event-time">Preferred Event Time:</label>
+        <input type="time" id="event-time" name="event-time">
 
-        <!-- Number input -->
-        <label for="guests">Number of Guests:</label><br>
-        <input type="number" id="guests" name="guests" min="0" max="10"><br><br>
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="0" max="10">
 
-        <!-- Radio buttons -->
-        <label>Choose Your Membership Type:</label><br>
+        <label>Choose Your Membership Type:</label>
         <input type="radio" id="regular" name="membership" value="regular">
-        <label for="regular">Regular</label><br>
+        <label for="regular">Regular</label>
         <input type="radio" id="vip" name="membership" value="vip">
-        <label for="vip">VIP</label><br><br>
+        <label for="vip">VIP</label>
 
-        <!-- Checkbox -->
-        <label>Choose Your Interests:</label><br>
+        <label>Choose Your Interests:</label>
         <input type="checkbox" id="workshops" name="interests" value="workshops">
-        <label for="workshops">Workshops</label><br>
+        <label for="workshops">Workshops</label>
         <input type="checkbox" id="networking" name="interests" value="networking">
-        <label for="networking">Networking</label><br>
+        <label for="networking">Networking</label>
         <input type="checkbox" id="competitions" name="interests" value="competitions">
-        <label for="competitions">Competitions</label><br><br>
+        <label for="competitions">Competitions</label>
 
-        <!-- Dropdown (select) -->
-        <label for="event">Select Event:</label><br>
+        <label for="event">Select Event:</label>
         <select id="event" name="event" required>
             <option value="">--Select an Event--</option>
             <option value="workshop">Workshop</option>
             <option value="webinar">Webinar</option>
             <option value="competition">Competition</option>
-        </select><br><br>
+        </select>
 
-        <!-- File input -->
-        <label for="resume">Upload Resume (optional):</label><br>
-        <input type="file" id="resume" name="resume"><br><br>
+        <label for="resume">Upload Resume (optional):</label>
+        <input type="file" id="resume" name="resume">
 
-        <!-- Textarea -->
-        <label for="comments">Additional Comments:</label><br>
-        <textarea id="comments" name="comments" rows="4" cols="30"></textarea><br><br>
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="comments" rows="4" cols="30"></textarea>
 
-        <!-- Submit button -->
         <button type="submit">Register</button>
     </form>
 </body>
